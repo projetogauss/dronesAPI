@@ -22,8 +22,8 @@ def toy_list(request):
         return Response(toys_serializer.data)
     elif request.method == 'POST':
         #get the request convert this data of JSON to Native type
-        toy_data = JSONParser().parse(request)
-        toy_serializer = ToySerializer(data=toy_data)
+        #toy_data = JSONParser().parse(request)
+        toy_serializer = ToySerializer(data=request.data)
         if toy_serializer.is_valid():
             toy_serializer.save()
             return Response(toy_serializer.data,\
@@ -43,8 +43,9 @@ def toy_detail(request, pk):
         return Response(toy_serializer.data)
     elif request.method == 'PUT':
         #convert request in obj native python
-        toy_data = JSONParser().parse(request)
-        toy_serializer = ToySerializer(toy,data=toy_data)
+        #toy_data = JSONParser().parse(request)
+        #toy_serializer = ToySerializer(toy,data=toy_data)
+        toy_serializer = ToySerializer(toy,data=request.data)
         if toy_serializer.is_valid():
             toy_serializer.save()
             return Response(toy_serializer.data)
