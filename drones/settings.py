@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    #'toy.apps.ToyConfig',
+    'toy.apps.ToyConfig',
     'app.apps.AppConfig',       
 
 ]
